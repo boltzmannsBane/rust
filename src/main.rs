@@ -1,8 +1,7 @@
 fn main() {
-    let x = plus_one(5);
-    println!("the value of x is: {}", x);
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!");
 }
 
-fn plus_one(x: i32) -> i32 {
-    x + 1
-}
