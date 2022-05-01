@@ -1,33 +1,17 @@
-use std::io;
-use rand::Rng;
-use std::cmp::Ordering;
-
 fn main() {
-    println!("Guess the number!");
+    let s = String::from("hello world");
+    let word = first_word(&s);
+    println!("the first word is: {}", word);
+}
 
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
 
-    println!("The secret number is: {}", secret_number);
-
-    loop {
-        println!("Please input your guess.");
-
-        let mut guess = String::new();
-
-        io::stdin().read_line(&mut guess).expect("Failed to read line");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!");
-                break;
-            }
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
         }
     }
+
+    &s
 }
