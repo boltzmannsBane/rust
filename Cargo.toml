@@ -6,8 +6,3 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rand = "0.8.3"
-
-[[bin]]
-name = "hello_cargo"
-path = "main.rs"
