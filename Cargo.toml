@@ -1,5 +1,5 @@
 [package]
-name = "guessing_game"
+name = "hello_cargo"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,3 +7,7 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.3"
+
+[[bin]]
+name = "hello_cargo"
+path = "main.rs"
